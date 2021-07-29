@@ -2,7 +2,7 @@
 
 ---
 
-## Intro 
+## Overview 
 The objective of this assignment was to explore the functionality of blockchain technology by setting up a private testnet. The private testnet utilizes Puppeth, Geth and a Clique Proof of Authority consensus algorithim. The Proof of Authority (PoA) algorithm is typically used for private blockchain networks as it requires pre-approval of the account addresses that have the ability to approve transactions (seal blocks).  The following report will outline the various steps required to launch the test network including the network configuration.
 
 ## Blockchain Network Configuration
