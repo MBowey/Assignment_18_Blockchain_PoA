@@ -56,12 +56,12 @@ Once you have your nodes created, the next step is setting up your genesis block
  ```bash
  ./puppeth
  ```
-* This should show the following prompt:
+* Your screen should look like the following:
 
 ![zchain Config](Screenshots/zchain_config1.png)
 
 
-* Next type in `zchain` to name our network (any name would work) and hit enter to move forward in the wizard.
+* Next type in `zchain` to name your network (any name would work) and hit enter to move forward in the wizard.
 
 * Type `2` to pick the `Configure new genesis` option, then `1` to `Create new genesis from scratch`:
 
@@ -69,27 +69,25 @@ Now you have the option to pick a consensus algorithm to use.
 
 * Type `2` to choose `Clique Proof of Authority` and hit enter. 
 
-* You will also be prompted to setup your blocktime. For our blockchain we have selected `5 seconds` to speed up our validation time. The default time is `15 seconds`. 
+* You will also be prompted to setup your blocktime. For my blockchain, I have selected `5 seconds` to speed up the validation time. The default time is `15 seconds`. 
 
 Next you will be prompted to setup your validation nodes.
-
-*Note - That your nodes will need to be created in order to configure what nodes will be allowed to seal and validate transactions.*
 
 * Copy and paste the addresses from your nodes created in step 1 into the list of accounts to seal.  
 
 * Paste them again in the list of accounts to pre-fund. And then choose 'no' for pre-funding the pre-compiled accounts with wei. 
 
-* Next you will need to pick a number of your choice to use as a chain ID. This will be used to help connect MyCrypto Wallet to your network. In our case we used `999` and then hit enter.
+* Next you will need to pick a number of your choice to use as a chain ID. This will be used to help connect MyCrypto Wallet to your network. In my case, I used `999` and then hit enter.
 
-You should see a success message that your Genesis Block has been configured and you will then be taken back the main menu. 
+You should see a success message that your Genesis Block has been configured and you will then be taken back to the main menu. See below screenshot as a reference.
 
 ![zchain Config](Screenshots/zchain_config2.png)
 
 
 
-## Step 3 - Initilize Nodes
+## Step 3 - Initialize Nodes
 
-With the genesis block created, we will now initialize the nodes using the genesis' json file.
+With the genesis block created, you will now need to initialize the nodes using the genesis' json file.
 
 * First from the main menu in your open terminal window, choose the 'Manage existing genesis' option.
 
@@ -107,9 +105,9 @@ Using geth, initialize each node with the `zchain.json` file we just exported:
 
 
 ## Step 4 - Begin Mining Blocks
-The last step to get our blockchain up and running is to start mining blocks. 
+The last step to get your blockchain up and running is to start mining blocks. 
 
-* In order to run our seperate nodes, open seperate terminal windows and again navigate to your `Blockchain-Tools` directory
+* In order to run your seperate nodes, open seperate terminal windows and again navigate to your `Blockchain-Tools` directory
 
 * In each terminal window, type the following commands: 
 
@@ -125,7 +123,7 @@ banknode2:
  *  ./geth --datadir node2 --unlock "0x0e4899c5f3782F0a202B38c0612f1B045Be65BA2" --mine --port 30304 --bootnodes "enode://db7d0481cdd139ee4cd07ab9d281b2fcc0df05c7fe05fa61a032df54771ee798669f0194fe1e8e5ccee519d52e4f126d19264ae6a8809520826d660cd5c90518@127.0.0.1:30303" --ipcdisable --allow-insecure-unlock
  ```
 
-* **NOTE:** Type your password and hit enter - even if you can't see it visually!
+* **NOTE:** Type the password for each node that you setup in Step 1 and hit enter - even if you can't see it visually!
 
 * Your blockchain should now be running and creating new blocks.
 
@@ -146,24 +144,27 @@ Now that we have our blockchain network up and running. We can now connect MyCry
 
     * Finally, click `Save & Use Custom Node`. 
 
-## Step 6 - Unlock Wallets & Send Transactions
+## Step 6 - Unlock Wallets & Check Balances
 Now we can send transactions between our wallets. 
 
 * Select the `View & Send` option from the left menu pane, then click `Keystore file`.
 
-* On the next screen, click `Select Wallet File`, then navigate to the keystore directory inside your `bankode1` directory, select the file located there, provide your password when prompted and then click `Unlock`.
+* On the next screen, click `Select Wallet File`, then navigate to the keystore directory inside your `banknode1` directory, select the file located there, provide your password when prompted and then click `Unlock`.
 
     * This will open your account wallet inside MyCrypto where you can check your balance. 
 
 ![Account Balance](Screenshots/account_balance.png)
     
-* To send a transaction, enter the address you would like to send 'ETH' to in the `To Address` box. You can use the public address of your second node and then fill in an arbitrary amount of ETH and click `Send Transaction`.
+* You can repeat the process for `banknode2`.
+    
+## Step 7 - Send Transactions
+To send a transaction, enter the address you would like to send 'ETH' to in the `To Address` box. You can use the public address of your second node and then fill in an arbitrary amount of ETH and click `Send Transaction`.
 
 * Confirm the transaction by clicking "Send Transaction", and the "Send" button in the pop-up window.  
 
 * Click the `Check TX Status` when the green message pops up, confirm the logout:
 
-* You should see the transaction go from `Pending` to `Successful` in around the same blocktime (5seconds) you set in the genesis.
+* You should see the transaction go from `Pending` to `Successful` in around the same blocktime (`5seconds`) you set in the genesis.
 
 ![Test Transaction](Screenshots/test_transaction.png)
 
