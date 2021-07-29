@@ -37,10 +37,10 @@ The first step is to create two new nodes with new account addresses that will s
 
 * Save the name of your `banknode1` public address, your password and the path of your keystore file as seen in the screenshot below:
 
-#![banknode1](Screenshots/banknode1.png)
+![banknode1](Screenshots/banknode1.png)
 
 
-* Repeat the process and setup the second node:
+* Repeat the process for the second node:
 
 ```bash
 ./geth --datadir banknode2 account new
