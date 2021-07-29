@@ -3,41 +3,53 @@
 ---
 
 ## Intro 
-The objective of this assignment was to explore the functionality of blockchain by setting up a private testnet with the ability to send transactions between wallets. The private testnet utilizes Puppeth, Geth and a Clique Proof of Authority consensus algorithim. The Proof of Authority (PoA) algorithm is typically used for private blockchain networks as it requires pre-approval of the account addresses that can approve transactions (seal blocks).  The following report will outline the various steps required to launch the test network.
+The objective of this assignment was to explore the functionality of blockchain technology by setting up a private testnet. The private testnet utilizes Puppeth, Geth and a Clique Proof of Authority consensus algorithim. The Proof of Authority (PoA) algorithm is typically used for private blockchain networks as it requires pre-approval of the account addresses that have the ability to approve transactions (seal blocks).  The following report will outline the various steps required to launch the test network including the network configuration.
 
-## Network Configuration
-This is a short summary of the network configuration:
+## Blockchain Network Configuration
 
+* Network Name: `zchain'
+* Consensus: `Proof of Authority`
 * Blocktime: `5 seconds`
 * Chain ID: `999`
-* banknode 1 port: `30303`
-* banknode 2 port: `30304`
-* Url: `http://127.0.0.1:8545`
+* URl: `http://127.0.0.1:8545`
+
+* Validator Node 1: 
+     * Name: `banknode1`
+     * Address:  `0xCa6013cAb69E5f5356791a8b7BD9aEF9Dc77966f`
+     * Port: `30303`
+     * Password: `test1234`
+
+* Validator Node 2: 
+     * Name: `banknode2`
+     * Address:  `0x0e4899c5f3782F0a202B38c0612f1B045Be65BA2`
+     * Port: `30304`
+     * Password: `test1234`
 
 
 ## Step 1 - Creating Nodes
-The first step to setting up our blockchain is to create two new nodes with new account addresses that will serve as our pre-approved sealer addresses. We need to complete this step first, as we need to approve these addresses when setting up our genesis block. 
+The first step is to create two new nodes with new account addresses that will serve as our pre-approved block sealer addresses. We need to complete this step first, as we need to approve these addresses when setting up our genesis block. 
 
-* Navigating to our `Blockchain-Tools` folder in terminal we use the following code for each node:
+* Navigating to our `Blockchain-Tools` folder in terminal we use the following code for each node and enter a password:
 
 ```bash
 ./geth --datadir banknode1 account new
 ```
 
-* Save the name of your banknode1 public address and the path of your keystore file as seen in the screenshot
+* Save the name of your banknode1 public address, your password and the path of your keystore file as seen in the screenshot below:
 
 #![banknode1](Screenshots/banknode1.png)
+
+
+* Repeat the process and setup the second node:
 
 ```bash
 ./geth --datadir banknode2 account new
 ``` 
 
-* Save the name of your banknode1 public address and the path of your keystore file as seen in the screenshot
-
 #![banknode2](Screenshots/banknode2.png)
 
 ## Step 2 - Genesis Blocks
-* Once you have your nodes created, the next step is setting up your genesis block. 
+Once you have your nodes created, the next step is setting up your genesis block. 
 
 * Open a terminal window, navigate to the `Blockchain-Tools` folder and type the following command:
 
@@ -49,7 +61,7 @@ The first step to setting up our blockchain is to create two new nodes with new 
 ![zchain Config](Screenshots/zchain_config1.png)
 
 
-* Next type in 'zchain' to name our network (any name would work) and hit enter to move forward in the wizard.
+* Next type in `zchain` to name our network (any name would work) and hit enter to move forward in the wizard.
 
 * Type `2` to pick the `Configure new genesis` option, then `1` to `Create new genesis from scratch`:
 
@@ -57,7 +69,7 @@ Now you have the option to pick a consensus algorithm to use.
 
 * Type `2` to choose `Clique Proof of Authority` and hit enter. 
 
-*  You will also be prompted to setup your blocktime. For our blockchain we have selected 5 seconds to speed up our validation time. The default time is 15 seconds. 
+* You will also be prompted to setup your blocktime. For our blockchain we have selected `5 seconds` to speed up our validation time. The default time is `15 seconds`. 
 
 Next you will be prompted to setup your validation nodes.
 
