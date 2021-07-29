@@ -7,7 +7,7 @@ The objective of this assignment was to explore the functionality of blockchain 
 
 ## Blockchain Network Configuration
 
-* Network Name: `zchain'
+* Network Name: `zchain`
 * Consensus: `Proof of Authority`
 * Blocktime: `5 seconds`
 * Chain ID: `999`
