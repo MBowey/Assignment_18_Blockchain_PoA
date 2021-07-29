@@ -11,7 +11,7 @@ The objective of this assignment was to explore the functionality of blockchain 
 * Consensus: `Proof of Authority`
 * Blocktime: `5 seconds`
 * Chain ID: `999`
-* URl: `http://127.0.0.1:8545`
+* URL: `http://127.0.0.1:8545`
 
 * Validator Node 1: 
      * Name: `banknode1`
