@@ -35,7 +35,7 @@ The first step is to create two new nodes with new account addresses that will s
 ./geth --datadir banknode1 account new
 ```
 
-* Save the name of your banknode1 public address, your password and the path of your keystore file as seen in the screenshot below:
+* Save the name of your `banknode1` public address, your password and the path of your keystore file as seen in the screenshot below:
 
 #![banknode1](Screenshots/banknode1.png)
 
@@ -46,7 +46,7 @@ The first step is to create two new nodes with new account addresses that will s
 ./geth --datadir banknode2 account new
 ``` 
 
-#![banknode2](Screenshots/banknode2.png)
+![banknode2](Screenshots/banknode2.png)
 
 ## Step 2 - Genesis Blocks
 Once you have your nodes created, the next step is setting up your genesis block. 
@@ -95,7 +95,7 @@ With the genesis block created, we will now initialize the nodes using the genes
 
 * Select Export genesis configurations, which will download your network configurations to your `Blockchain-Tools` directory.   
 
-Using geth, initialize each node with the 'zchain.json' file we just exported:
+Using geth, initialize each node with the `zchain.json` file we just exported:
 
 ```bash
 ./geth --datadir node1 init zchain.json
@@ -115,14 +115,14 @@ The last step to get our blockchain up and running is to start mining blocks.
 
 banknode1:
 ```bash
- ./geth --datadir node1 --unlock "SEALER_ONE_ADDRESS" --mine --rpc --allow-insecure-unlock
+ ./geth --datadir node1 --unlock "0xCa6013cAb69E5f5356791a8b7BD9aEF9Dc77966f" --mine --rpc --allow-insecure-unlock
  ```
 
 * Copy the resulting enode address from the terminal that you will use to connect your second node:
 
 banknode2:
  ```bash
- *  ./geth --datadir node2 --unlock "SEALER_TWO_ADDRESS" --mine --port 30304 --bootnodes "enode://SEALER_ONE_ENODE_ADDRESS@127.0.0.1:30303" --ipcdisable --allow-insecure-unlock
+ *  ./geth --datadir node2 --unlock "0x0e4899c5f3782F0a202B38c0612f1B045Be65BA2" --mine --port 30304 --bootnodes "enode://db7d0481cdd139ee4cd07ab9d281b2fcc0df05c7fe05fa61a032df54771ee798669f0194fe1e8e5ccee519d52e4f126d19264ae6a8809520826d660cd5c90518@127.0.0.1:30303" --ipcdisable --allow-insecure-unlock
  ```
 
 * **NOTE:** Type your password and hit enter - even if you can't see it visually!
