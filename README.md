@@ -77,11 +77,11 @@ Next you will be prompted to setup your validation nodes.
 
 * Paste them again in the list of accounts to pre-fund. And then choose 'no' for pre-funding the pre-compiled accounts with wei. 
 
-* Next you will need to pick a number of your choice to use as a chain ID. This will be used to help connect MyCrypto Wallet to your network. In my case, I used `999` and then hit enter.
-
-You should see a success message that your Genesis Block has been configured and you will then be taken back to the main menu. See below screenshot as a reference.
+* Next you will need to pick a number of your choice to use as a chain ID. This will be used to help connect MyCrypto Wallet to your network. In my case, I used `999` and then hit enter. See below screenshot as a reference.
 
 ![zchain Config](Screenshots/zchain_config2.png)
+
+You should see a success message that your Genesis Block has been configured and you will then be taken back to the main menu. 
 
 
 
@@ -96,11 +96,11 @@ With the genesis block created, you will now need to initialize the nodes using 
 Using geth, initialize each node with the `zchain.json` file we just exported:
 
 ```bash
-./geth --datadir node1 init zchain.json
+./geth --datadir banknode1 init zchain.json
 ```
 
 ```bash
-./geth --datadir node2 init zchain.json
+./geth --datadir banknode2 init zchain.json
 ```
 
 
