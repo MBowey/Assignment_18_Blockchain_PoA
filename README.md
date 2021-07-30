@@ -75,7 +75,7 @@ Next you will be prompted to setup your validation nodes.
 
 * Copy and paste the addresses from your nodes created in step 1 into the list of accounts to seal.  
 
-* Paste them again in the list of accounts to pre-fund. And then choose 'no' for pre-funding the pre-compiled accounts with wei. 
+* Paste them again in the list of accounts to pre-fund. And then choose `no` for pre-funding the pre-compiled accounts with wei. 
 
 * Next you will need to pick a number of your choice to use as a chain ID. This will be used to help connect MyCrypto Wallet to your network. In my case, I used `999` and then hit enter. See below screenshot as a reference.
 
