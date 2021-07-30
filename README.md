@@ -75,7 +75,7 @@ Next you will be prompted to setup your validation nodes.
 
 * Copy and paste the addresses from your nodes created in step 1 into the list of accounts to seal.  
 
-* Paste them again in the list of accounts to pre-fund. And then choose `no` for pre-funding the pre-compiled accounts with wei. 
+* Paste them again in the list of accounts to pre-fund and then type `no` for pre-funding the pre-compiled accounts with wei. 
 
 * Next you will need to pick a number of your choice to use as a chain ID. This will be used to help connect MyCrypto Wallet to your network. In my case, I used `999` and then hit enter. See below screenshot as a reference.
 
@@ -107,18 +107,17 @@ Using geth, initialize each node with the `zchain.json` file we just exported:
 ## Step 4 - Begin Mining Blocks
 The last step to get your blockchain up and running is to start mining blocks. 
 
-* In order to run your seperate nodes, open seperate terminal windows and again navigate to your `Blockchain-Tools` directory
+* In order to run your seperate nodes, open seperate terminal windows for each node and again navigate to your `Blockchain-Tools` directory
 
-* In each terminal window, type the following commands: 
+* In the first terminal window for `banknode1`, type the following commands: 
 
-banknode1:
 ```bash
  ./geth --datadir node1 --unlock "0xCa6013cAb69E5f5356791a8b7BD9aEF9Dc77966f" --mine --rpc --allow-insecure-unlock
  ```
+* Copy the resulting enode address from the first terminal that you will use to connect your second node.
 
-* Copy the resulting enode address from the terminal that you will use to connect your second node:
+* In the second terminal window for `banknode2`, type the following commands: 
 
-banknode2:
  ```bash
  ./geth --datadir node2 --unlock "0x0e4899c5f3782F0a202B38c0612f1B045Be65BA2" --mine --port 30304 --bootnodes "enode://db7d0481cdd139ee4cd07ab9d281b2fcc0df05c7fe05fa61a032df54771ee798669f0194fe1e8e5ccee519d52e4f126d19264ae6a8809520826d660cd5c90518@127.0.0.1:30303" --ipcdisable --allow-insecure-unlock
  ```
@@ -132,7 +131,7 @@ Now that we have our blockchain network up and running. We can now connect MyCry
 
 * Open the MyCrypto app, then click `Change Network` at the bottom left:
 
-* Click "Add Custom Node", then add the custom network information that you set in the genesis.
+* Click `Add Custom Node`, then add the custom network information that you set in the genesis.
 
 * Scroll down to choose `Custom` in the "Network" column to reveal more options like `Chain ID`:
 
@@ -158,15 +157,19 @@ Now we can send transactions between our wallets.
 * You can repeat the process for `banknode2`.
     
 ## Step 7 - Send Transactions
-To send a transaction, enter the address you would like to send 'ETH' to in the `To Address` box. You can use the public address of your second node and then fill in an arbitrary amount of ETH and click `Send Transaction`.
+To send a transaction, enter the address you would like to send `ETH` to in the `To Address` box. You can use the public address of your second node and then fill in an arbitrary amount of `ETH` and click `Send Transaction`.
 
-* Confirm the transaction by clicking "Send Transaction", and the "Send" button in the pop-up window.  
+* Confirm the transaction by clicking `Send Transaction`, and the `Send` button in the pop-up window.  
 
 * Click the `Check TX Status` when the green message pops up, confirm the logout:
 
 * You should see the transaction go from `Pending` to `Successful` in around the same blocktime (`5seconds`) you set in the genesis.
 
 ![Test Transaction](Screenshots/test_transaction.png)
+
+
+### Reference
+*https://columbia.bootcampcontent.com/columbia-bootcamp/cu-nyc-virt-fin-pt-03-2021-u-c/-/blob/master/01-Lesson_Plans/18-Blockchain/Supplemental/POA-Blockchain-guide.md*
 
 
 
